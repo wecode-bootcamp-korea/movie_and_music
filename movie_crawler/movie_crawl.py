@@ -4,15 +4,23 @@ from datetime import datetime, timedelta
 
 
 movies = []
+
 date = datetime.now()
+
 date_ago = date + timedelta(days=-1)
+
 date_fit = date_ago.strftime('%Y%m%d')
+
 #당일 기준으로는 데이터를 끌어올수 없어서 전날 기준으로 데이터를 수집
+
 api_key = secret.KEY['secret_key']
+
 #API 키 가져오기
 
 currentPath = os.getcwd()
+
 file_path = currentPath + '/movie_list_'+date_fit+'.csv'
+
 csv_file = open(file_path, 'w', newline="")
 
 
@@ -43,6 +51,7 @@ def start_crawl():
     
     for movie_list in movies:
         csvwriter.writerow(movie_list)
+    
     csv_file.close()
 
     
