@@ -9,15 +9,18 @@
 #     https://doc.scrapy.org/en/latest/topics/downloader-middleware.html
 #     https://doc.scrapy.org/en/latest/topics/spider-middleware.html
 
-FEED_FORMAT = 'csv'
-FEED_URI = 'music_crawler.csv'
+
+from scrapy.settings.default_settings import ITEM_PIPELINES
 
 BOT_NAME = 'music_crawler'
 
 SPIDER_MODULES = ['music_crawler.spiders']
 NEWSPIDER_MODULE = 'music_crawler.spiders'
 
-
+ITEM_PIPELINES = {
+    'music_crawler.pipelines.MusicCrawlerPipeline': 0
+    }
+    
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
 #USER_AGENT = 'music_crawler (+http://www.yourdomain.com)'
 
