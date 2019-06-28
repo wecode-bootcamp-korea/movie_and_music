@@ -22,7 +22,7 @@ class MovieData(luigi.Task):
     date_fit = date_ago.strftime('%Y%m%d')
  
     def run(self):
-        subprocess.run(["python ./movie_crawler/movie_crawl.py"],shell=True)      
+        subprocess.run(["python movie_crawl.py"],shell=True)      
 
     def output(self):
         return luigi.LocalTarget('./movie{}.db'.format(self.date_fit))

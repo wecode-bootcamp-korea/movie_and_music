@@ -104,4 +104,4 @@ venv.bak/
 .mypy_cache/
 
 # movie_secret
-movie_crawler/secret.py
+secret.py
